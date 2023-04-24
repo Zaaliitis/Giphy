@@ -1,0 +1,17 @@
+{
+    "name": "zalitis/giphy",
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zalitis\\Giphy\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zalitis",
+            "email": "zrobertss@gmail.com"
+        }
+    ]
+}
