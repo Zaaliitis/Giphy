@@ -40,7 +40,7 @@ class ApiClient
         $count = 0;
         foreach ($gifs as $gif) {
             $gif_url = $gif['fixed_height']['url'];
-            echo '<img src="' . $gif_url . '">';
+            echo '<img src="' . $gif_url . '">' . PHP_EOL;
 
             $count++;
             if ($count % 3 == 0) {
