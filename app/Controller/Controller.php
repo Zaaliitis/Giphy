@@ -34,12 +34,10 @@ class Controller
 
     public function trending(): string
     {
-        $offset = $_GET['offset'] ?? 0;
         $gifs = $this->client->getTrending();
         return $this->twig->render('view.html.twig', ['gifs' => $gifs]);
     }    public function home(): string
     {
-        $offset = $_GET['offset'] ?? 0;
         $gifs = $this->client->getTrending();
         return $this->twig->render('view.html.twig');
     }
