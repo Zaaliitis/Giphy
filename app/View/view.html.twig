@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIPHY SEARCH PAGE</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Giphy-logo.svg/1280px-Giphy-logo.svg.png"
+        width="500"
+        alt="Giphy logo"
+>
+<br><br>
+<button class="button2" onclick="location.href='home'" type="submit">Home</button>
+<button class="button1" onclick="location.href='trending'" type="submit">Trending</button>
+<button class="button3" onclick="location.href='random'" type="submit">Random</button>
+<br><br>
+<form action="/" method="GET">
+    <label for="search_query">Search for GIFs:</label>
+    <input type="text" id="search_query" name="search_query">
+    <button class="button4" type="submit">Search</button>
+</form>
+
+{% for gif in gifs %}
+    <img src="{{ gif.fixed_height.url }}">
+    {% if loop.index % 3 == 0 %}
+        <br>
+    {% endif %}
+{% endfor %}
+
+
+</body>
+</html>
