@@ -12,21 +12,34 @@
 >
 <br><br>
 <button class="button2" onclick="location.href='home'" type="submit">Home</button>
-<button class="button1" onclick="location.href='trending'" type="submit">Trending</button>
-<button class="button3" onclick="location.href='random'" type="submit">Random</button>
+<button class="button1" onclick="location.href='trending'" type="submit">TOP 50 Trending</button>
+<button class="button3" onclick="location.href='random'" type="submit">Totally Random</button>
 <br><br>
 <form action="/" method="GET">
     <label for="search_query">Search for GIFs:</label>
     <input type="text" id="search_query" name="search_query">
     <button class="button4" type="submit">Search</button>
 </form>
+<div>
+    {% if moreGifsUrl %}
+        <b>Try some of these tags:</b>
+        {% for tag in favoriteTags %}
+            <a href="?search_query={{ tag }}">{{ tag }}</a>
+        {% endfor %}
+    {% endif %}
 
+</div>
+<br>
 {% for gif in gifs %}
     <img src="{{ gif.fixed_height.url }}">
     {% if loop.index % 3 == 0 %}
         <br>
     {% endif %}
 {% endfor %}
+<br>
+{% if moreGifsUrl %}
+    <button class="button5" onclick="location.href='{{ moreGifsUrl }}'" type="button">More gifs</button>
+{% endif %}
 
 
 </body>

@@ -23,7 +23,7 @@ class ApiClient
 
     private function getParameters($searchInput, $limit, $offset): array
     {
-       return $this->parameters = [
+        return $this->parameters = [
             'query' => [
                 'api_key' => $_ENV['API_KEY'],
                 'q' => $searchInput,
@@ -41,14 +41,17 @@ class ApiClient
         $data = json_decode($response->getBody(), true);
         return array_column($data['data'], 'images');
     }
-    public function getTrending(int $offset = 0): array
+
+    public function getTrending(): array
     {
-        $response = $this->client->get('trending', $this->getParameters("", 15, $offset));
+        $response = $this->client->get('trending', $this->getParameters("", 50, 0));
         $data = json_decode($response->getBody(), true);
         return array_column($data['data'], 'images');
-    }    public function getRandom(int $offset = 0): array
+    }
+
+    public function getRandom(): array
     {
-        $response = $this->client->get('random', $this->getParameters("", 1, $offset));
+        $response = $this->client->get('random', $this->getParameters("", 1, 0));
         $data = json_decode($response->getBody(), true);
         return array_column($data, 'images');
     }
