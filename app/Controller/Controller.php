@@ -21,8 +21,8 @@ class Controller
         $this->twig = new Environment($loader);
         $this->favoriteTags = [
             'John Wick',
-            'Boston Terrier',
-            'Movie',
+            'Batman',
+            'Crypto',
             'Weather',
             "Hockey",
         ];
